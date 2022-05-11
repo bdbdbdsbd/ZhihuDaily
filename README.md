@@ -22,3 +22,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+让一位热心群众试了一下，不出意外直接npm run serve就可以启动
