@@ -60,8 +60,8 @@ newsmenu 可以跳到 index/themeDetail/collect/newsDetail/comment 包含了Shar
 13. 会出现的偶尔卡顿 OK
 14. 轮播图的切换问题,在宽度变化的时候会遇到 OK 
 15. 评论的点赞刷新不丢失 OK
-16. 长评论和短评论的间距
-17. 页面的灰度
+16. 长评论和短评论的间距 OK
+17. 页面的灰度 OK
 
 
 ## 难点：获取document.body.clientHeight为页面的一半

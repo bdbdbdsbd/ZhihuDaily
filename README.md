@@ -13,7 +13,6 @@
 
 分为pages以及components两个部分
 
-<<<<<<< HEAD
 ## 2.1 index.vue
 
 本页面为主页，在路由组件中地址为  '/'。包含
