@@ -39,7 +39,7 @@
     </div>
 </template>
 
-<script>
+<script scoped>
 import router from '../router'
 import axios from 'axios'
 import {mapMutations} from 'vuex'

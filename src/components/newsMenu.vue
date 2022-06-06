@@ -102,7 +102,9 @@ export default {
                 this.$store.commit('mainOption/updateLongComment',response.data.long_comments)
                 this.$store.commit('mainOption/updateShortComment',response.data.short_comments)
             }
-        )
+        ).catch(error => {
+            console.log(this.error)
+        })
     },
     computed:{
         ...mapState('mainOption',['id','share','lastestContent']),
@@ -111,7 +113,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .menu{
     background: white;
     width: 3.75rem;

@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .share{
     background:white;
     /* width: 3.75rem;

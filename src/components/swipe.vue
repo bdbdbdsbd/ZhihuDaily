@@ -6,7 +6,7 @@
             v-on:touchstart="touchStart" 
             v-on:touchend="touchEnd" 
             v-on:touchmove="bodyTouchMove"
-            :style="{'background': 'linear-gradient(to top,'+ '#'+item.image_hue.slice(2)+' , rgba(255, 255, 255, 0) 70%), url('+item.image+')'}"
+            :style="{'background': 'linear-gradient(to top,'+ '#'+item.image_hue.slice(2)+' , rgba(255, 255, 255, 0) 70%), url('+item.image+')','background-size':'100% 100%'}"
             >
                 <div class="message" >
                     <div class="title">{{item.title}}</div>
@@ -214,7 +214,6 @@ export default {
 
 <style scoped>
 .swipe{
-    
     height: 3.76rem;
     width: 3.75rem;
     font-size: 0.1rem;
@@ -229,13 +228,13 @@ export default {
     overflow: hidden;
 }
 .swipe ul li{
+    flex: none;
     height: 3.76rem;
     width: 3.75rem;
     margin: 0;
     padding: 0;
     list-style: none;
     position: relative;
-    /* --bg-color: rgb(247, 180, 156); */
 }
 .swipe ul li .message{
     position: absolute;
@@ -253,12 +252,13 @@ export default {
     line-height: 0.12rem;
     margin-top: 0.14rem;
 }
-img{
-    width: 3.75rem;
-    line-height: 3.76rem;
-    height: 3.76rem;
+.swipe ul li img{
+    height: 100%;
+    width: 100%;
     margin: 0;
-    object-fit: fill;
+    background-repeat: no-repeat;
+    background-size: 100%,100%;
+    
 }
 .swipe .button{
     position: absolute;

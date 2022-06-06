@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .info{
     width: 100%;
     /* 43的电池栏 */

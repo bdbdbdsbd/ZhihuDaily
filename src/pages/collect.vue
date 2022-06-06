@@ -68,7 +68,7 @@ export default {
 }
 .collect header i{
     position: absolute;
-    left: 0rem;
+    left: 0.2rem;
     font-weight: 600;
 }
 .collect header .icon-fanhui1{

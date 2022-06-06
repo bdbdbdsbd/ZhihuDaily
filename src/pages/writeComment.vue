@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .blank{
     width: 3.75rem;
     height: 0.27rem;

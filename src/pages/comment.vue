@@ -232,7 +232,7 @@ export default {
 }
 .comment header i{
     position: absolute;
-    left: 0rem;
+    left: 0.2rem;
 }
 .comment header .icon-fanhui1{
     font-size: 0.2rem;
