@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="main">
     <headContent></headContent>
     <swipe></swipe>
     <newsList></newsList>
@@ -29,5 +29,7 @@ export default {
 </script>
 
 <style>
-
+.main{
+    overflow:hidden;
+}
 </style>

@@ -1,14 +1,14 @@
 <template>
     <div class="newsList" >
         <!-- <ul class="list" > -->
-        <ul class="list" style="overflow: auto;" 
+        <ul class="list  infinite-list" style="overflow: auto;" 
         v-infinite-scroll="loadMore"   
         :infinite-scroll-distance="20" 
         :infinite-scroll-disabled="loading"
         infinite-scroll-immediate-check=false
-        infinite-scroll-delay=2000
+        infinite-scroll-delay=100
         >
-            <li v-for='(storyItem,indexstoryList) in story' :key="indexstoryList" @click="viewDetail(storyItem.id)">
+            <li class="infinite-list-item" v-for='(storyItem,indexstoryList) in story' :key="indexstoryList" @click="viewDetail(storyItem.id)">
                 <div class="msg">
                     <div class="title">{{storyItem.title}}</div>
                     <div class="hint">{{storyItem.hint}}</div>
@@ -16,19 +16,20 @@
                 <img :src="storyItem.images" alt="">
             </li>
         </ul>
-        <ul  class="list" style="overflow: auto;" 
+        <ul  class="list infinite-list" style="overflow: auto;" 
         v-infinite-scroll="loadMore" 
+        
         :infinite-scroll-distance="20" 
         :infinite-scroll-disabled="loading"
         infinite-scroll-immediate-check=false
         v-for="(stories,indexstories) in lastStoryList" 
-        infinite-scroll-delay=2000
+        infinite-scroll-delay=1000
         :key="indexstories">
             <div class="dateline">
                 <div class="date">{{stories.datedate}}</div>
                 <div class="line"></div>
             </div>
-            <li v-for='(storyItem,indexstoryList) in stories.stories' :key="indexstoryList" @click="viewDetail(storyItem.id)">
+            <li class="infinite-list-item" v-for='(storyItem,indexstoryList) in stories.stories' :key="indexstoryList" @click="viewDetail(storyItem.id)">
                 <div class="msg">
                     <div class="title">{{storyItem.title}}</div>
                     <div class="hint">{{storyItem.hint}}</div>
@@ -55,8 +56,10 @@ export default {
     },
     created() {
         axios.get('api/4/news/latest').then(response => {
+            // console.log('begin')
             this.story = response.data.stories
             this.date = new Date()
+            // console.log(this.story)
         })
         .catch(error => {
             console.log(this.error)
@@ -67,12 +70,11 @@ export default {
     },
     methods: {
         ...mapMutations('mainOption',['updateId']),
-        loadMore(){
-            // console.log(this.date)
-           
+        loadMore(){        
             if(this.date == ''){
                 return
             }
+            console.log(this.date)
             this.loading = true
             this.date.setDate(this.date.getDate() - 1)
             var dateNow =  this.date.getFullYear().toString() + (this.date.getMonth()<10 ? '0' : '')+
@@ -103,6 +105,8 @@ export default {
     font-size: 0.1rem;
     margin: 0.1rem 0 0 0;
     padding: 0;
+    /* overflow: hidden; */
+    /* height: 6.28rem; */
 }
 .list li{
     height: 1.02rem;

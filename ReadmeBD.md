@@ -63,8 +63,9 @@ newsmenu 可以跳到 index/themeDetail/collect/newsDetail/comment 包含了Shar
 16. 长评论和短评论的间距 OK
 17. 页面的灰度 OK
 
+# 4.难点
 
-## 难点：获取document.body.clientHeight为页面的一半
+## 4.1 获取document.body.clientHeight为页面的一半
 我的收藏部分，如果收藏部分未铺满页面满，需要填充灰色背景在下方。
 如果收藏数量很多，那么就设置一个固定的高度。
 所以我通过计算body高度以及window高度的差来解决。
@@ -72,9 +73,18 @@ newsmenu 可以跳到 index/themeDetail/collect/newsDetail/comment 包含了Shar
 和在控制台里面查看到的结果不一样
 解决方法：created 改成 mounted
 
-## 难点：分享页的设计
+## 4.2 难点：分享页的设计，涉及两个页面的切换
+1. 在背景页面设置一个函数，用来决定是否蒙上一个after opacity:0.6
+2. 当点击分享图标，vuex管理的share变量变为true, v-if管理对应的share页面弹出
+3. 同时newsDetail变灰色
+4. 点击取消或者点击灰色页面部分或者手指滑动灰色页面，share变量变为false
 
-## 难点：渐变
+v-if: 控制DOM元素的显示隐藏是将DOM元素整个添加或删除
+v-show:控制DOM的显示是为DOM元素添加css的样式display,设置none或者是block,DOM元素是还存在的
+v-if有更高的切换消耗；
+v-show有更高的初始渲染消耗
+
+## 4.3 难点：轮播图页面的渐变
 1. 采用after属性，在上面蒙一层透明的渐变的样式，可以配合伪类使用
 vue修改伪类样式
     setStyle(){
@@ -85,5 +95,11 @@ vue修改伪类样式
 加上之后又无法滑动
 2. 直接将img的方式转换，本来是直接加一个img框的，然后换成background的形式，
 
-## 难点：适配了浏览器在切换宽度时候的变化
-重置图片的坐标以及translate
+## 4.4 要点：适配了浏览器在切换宽度时候的变化
+增加了一个监听浏览器宽度变化的函数，重置图片的坐标以及translate
+
+## 4.5 难点：线上访问接口数据很慢
+https://zhuanlan.zhihu.com/p/525083382
+
+## 4.6 难点：ul布局和flex冲突
+ul元素使用display:flex会默认改变li的宽度，变成n分之一的ul的宽度，解决方法flex:none
