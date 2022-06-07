@@ -71,7 +71,7 @@ newsmenu 可以跳到 index/themeDetail/collect/newsDetail/comment 包含了Shar
 所以我通过计算body高度以及window高度的差来解决。
 但是body高度在created里面是window高度的一半
 和在控制台里面查看到的结果不一样
-解决方法：created 改成 mounted
+解决方法：created 改成 mounted 
 
 ## 4.2 难点：分享页的设计，涉及两个页面的切换
 1. 在背景页面设置一个函数，用来决定是否蒙上一个after opacity:0.6
@@ -81,6 +81,7 @@ newsmenu 可以跳到 index/themeDetail/collect/newsDetail/comment 包含了Shar
 
 v-if: 控制DOM元素的显示隐藏是将DOM元素整个添加或删除
 v-show:控制DOM的显示是为DOM元素添加css的样式display,设置none或者是block,DOM元素是还存在的
+<br>
 v-if有更高的切换消耗；
 v-show有更高的初始渲染消耗
 
@@ -103,3 +104,9 @@ https://zhuanlan.zhihu.com/p/525083382
 
 ## 4.6 难点：ul布局和flex冲突
 ul元素使用display:flex会默认改变li的宽度，变成n分之一的ul的宽度，解决方法flex:none
+
+## 4.7 知识点：vuex相关
+mapMutations
+
+## 4.8 element-ui的使用
+v-infinate-scor

@@ -1,13 +1,12 @@
 <template>
-    <div class="newsList" >
-        <!-- <ul class="list" > -->
-        <ul class="list  infinite-list" style="overflow: auto;" 
+    <div class="newsList"         
         v-infinite-scroll="loadMore"   
-        :infinite-scroll-distance="20" 
-        :infinite-scroll-disabled="loading"
-        infinite-scroll-immediate-check=false
-        infinite-scroll-delay=100
-        >
+        infinite-scroll-distance="10" 
+        infinite-scroll-disabled="loading"
+        infinite-scroll-immediate-check=false >
+        <!--         infinite-scroll-delay=1000 -->
+        <!-- <ul class="list" > -->
+        <ul class="list">
             <li class="infinite-list-item" v-for='(storyItem,indexstoryList) in story' :key="indexstoryList" @click="viewDetail(storyItem.id)">
                 <div class="msg">
                     <div class="title">{{storyItem.title}}</div>
@@ -16,14 +15,8 @@
                 <img :src="storyItem.images" alt="">
             </li>
         </ul>
-        <ul  class="list infinite-list" style="overflow: auto;" 
-        v-infinite-scroll="loadMore" 
-        
-        :infinite-scroll-distance="20" 
-        :infinite-scroll-disabled="loading"
-        infinite-scroll-immediate-check=false
+        <ul  class="list" 
         v-for="(stories,indexstories) in lastStoryList" 
-        infinite-scroll-delay=1000
         :key="indexstories">
             <div class="dateline">
                 <div class="date">{{stories.datedate}}</div>
@@ -38,6 +31,7 @@
             </li>
         </ul>
     </div>
+
 </template>
 
 <script scoped>
@@ -56,10 +50,8 @@ export default {
     },
     created() {
         axios.get('api/4/news/latest').then(response => {
-            // console.log('begin')
             this.story = response.data.stories
             this.date = new Date()
-            // console.log(this.story)
         })
         .catch(error => {
             console.log(this.error)
